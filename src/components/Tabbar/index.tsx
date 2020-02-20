@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { View, SafeAreaView, Dimensions, StyleSheet, Animated } from 'react-native';
 import * as shape from "d3-shape";
 import Svg, { Path } from 'react-native-svg';
-import StaticTabbar from '../StaticTabbar';
+import StaticTabbar, { tabHeight as height } from '../StaticTabbar';
 
 const { width } = Dimensions.get('window');
-const height = 70;
+
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 const tabs = [
   { name: 'grid' },
@@ -14,16 +14,7 @@ const tabs = [
   { name: 'box' },
   { name: 'user' },
 ];
-
 const tabWidth = width / tabs.length;
-const left = shape.line()
-  .x(d => d.x)
-  .y(d => d.y)
-  .curve(shape.curveBasis)([
-    { x: 0, y: 0 },
-    { x: width, y: 0 },
-  ])
-
 
 const getPath = (): string => {
   const left = shape.line().x(d => d.x).y(d => d.y)([
@@ -57,18 +48,26 @@ const d = getPath();
 interface Props { }
 
 export default class Tabbar extends Component<Props> {
+  value = new Animated.Value(-width);
+
   render() {
+    const { value: translateX } = this;
     return (
       <>
         <View {...{ width, height }}>
-          <AnimatedSvg width={width * 2} {...{ height }} >
+          <AnimatedSvg
+            width={width * 2}
+            style={{ transform: [{ translateX }] }}
+            {...{ height, }} >
             <Path {...{ d }} fill='white' />
-            <SafeAreaView style={styles.safeArea} />
           </AnimatedSvg>
-          <View style={styles.absoluteFill}>
-            <StaticTabbar {...{ tabs }} />
+          <View style={StyleSheet.absoluteFill}>
+            <StaticTabbar
+              value={translateX}
+              {...{ tabs }} />
           </View>
         </View>
+        <SafeAreaView style={styles.safeArea} />
       </>
     )
   }
@@ -78,7 +77,4 @@ const styles = StyleSheet.create({
   safeArea: {
     backgroundColor: '#fff'
   },
-  absoluteFill: {
-
-  }
 })
