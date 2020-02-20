@@ -18,8 +18,10 @@ yarn install
 ```sh
 yarn start
 ```
+Desafio baseado em https://uimovement.com/design/tab-bar-3/
+# Image representando o resultado do Desafio
 
-
+<image src='image-example.png' />
 
 ### Tecnologias Utilizadas
   - Expo
