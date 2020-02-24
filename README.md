@@ -21,7 +21,7 @@ yarn start
 Desafio baseado em https://uimovement.com/design/tab-bar-3/
 # Image representando o resultado do Desafio
 
-<image src='image-example.png' />
+<image src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/441c3279473185.5cc402ed2906d.gif' />
 
 ### Tecnologias Utilizadas
   - Expo
