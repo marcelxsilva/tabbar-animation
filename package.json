@@ -12,7 +12,7 @@
     "expo": "~38.0.3",
     "global": "^4.4.0",
     "react": "~16.9.0",
-    "react-dom": "~16.9.0",
+    "react-dom": "~16.13.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-screens": "2.0.0-alpha.12",
     "react-native-svg": "9.13.3",
