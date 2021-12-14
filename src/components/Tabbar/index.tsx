@@ -54,12 +54,13 @@ export default class Tabbar extends Component<Props> {
     const { value: translateX } = this;
     return (
       <>
-        <View {...{ width, height }}>
+        <View >
           <AnimatedSvg
+            height={height}
             width={width * 2}
-            style={{ transform: [{ translateX }] }}
-            {...{ height, }} >
-            <Path {...{ d }} fill='white' />
+            style={{ transform: [{translateX}]}}
+            >
+            <Path {...{d}} />
           </AnimatedSvg>
           <View style={StyleSheet.absoluteFill}>
             <StaticTabbar
@@ -75,6 +76,6 @@ export default class Tabbar extends Component<Props> {
 
 const styles = StyleSheet.create({
   safeArea: {
-    backgroundColor: '#fff'
+    backgroundColor: '#93C8E7'
   },
 })
