@@ -4,10 +4,12 @@ import { Feather as Icon } from '@expo/vector-icons';
 interface Tab {
   name: string,
 }
-interface Props {
+
+type Props = {
   tabs: Tab[],
   value: Animated.Value
-}
+};
+
 export const tabHeight = 70;
 const { width } = Dimensions.get('window');
 
